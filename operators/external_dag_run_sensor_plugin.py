@@ -9,6 +9,24 @@ import logging
 
 
 class ExternalDagRunSensor(BaseSensorOperator):
+    """
+    Waits for different DAG run to complete
+
+    :param external_dag_id: The dag_id that you want to wait for
+    :type external_dag_id: string
+    :param allowed_states: list of allowed states, default is ``['Running']``
+    :type allowed_states: list
+    :param execution_delta: time difference with the previous execution to
+        look at, the default is the same execution_date as the current task.
+        For yesterday, use [positive!] datetime.timedelta(days=1). Either
+        execution_delta or execution_date_fn can be passed to
+        ExternalTaskSensor, but not both.
+    :type execution_delta: datetime.timedelta
+    :param execution_date_fn: function that receives the current execution date
+        and returns the desired execution date to query. Either execution_delta
+        or execution_date_fn can be passed to ExternalTaskSensor, but not both.
+    :type execution_date_fn: callable
+    """
     @apply_defaults
     def __init__(
             self,
