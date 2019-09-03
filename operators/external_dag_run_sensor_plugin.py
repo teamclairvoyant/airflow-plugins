@@ -1,7 +1,21 @@
+# -*- coding: utf-8 -*-
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+__author__ = 'robertsanders'
+
 from airflow.plugins_manager import AirflowPlugin
 from airflow import DAG, settings
 from airflow.operators import BashOperator, PythonOperator, BaseSensorOperator
-from datetime import timedelta, datetime
 from airflow.utils.state import State
 from airflow.utils.decorators import apply_defaults
 from airflow.models import DagRun
